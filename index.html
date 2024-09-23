@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globetrot Tales - Travel Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header Styling */
+        header {
+            width: 100%;
+            padding: 10px 50px; /* Reduced padding */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            transition: background 0.3s ease, top 0.3s ease;
+        }
+
+        .blog-title {
+            color: #ffcc00;
+            font-size: 1.5rem; /* Reduced font size */
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center; /* Align icon and text vertically */
+        }
+
+        .blog-title i {
+            margin-right: 10px; /* Spacing between icon and text */
+            font-size: 1.8rem; /* Icon size */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 15px; /* Reduced margin */
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 0.9rem; /* Adjusted font size */
+            text-decoration: none;
+            padding: 8px 15px; /* Reduced padding */
+            border-radius: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background-image: url('logo14.jpg'); /* Update with your image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #070000;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            animation: fade-in 2s ease-in-out;
+        }
+
+        .cta-button {
+            background-color: #ff4500;
+            color: rgb(0, 0, 0);
+            font-size: 1.2rem;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            animation: bounce-in 2s ease-in-out infinite;
+        }
+
+        .cta-button:hover {
+            background-color: #ffcc00;
+            color: #333;
+            transform: scale(1.1);
+        }
+
+        /* Featured Adventures Section */
+        .featured-articles {
+            padding: 80px 50px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .featured-articles h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #ff4500;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .article-card {
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            width: 30%;
+            overflow: hidden;
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .article-card h3 {
+            padding: 15px;
+            font-size: 1.5rem;
+            color: #ff4500;
+        }
+
+        .article-card p {
+            padding: 0 15px 15px 15px;
+            color: #666;
+        }
+
+        .read-more {
+            display: block;
+            background-color: #ff4500;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .read-more:hover {
+            background-color: #ffcc00;
+            color: #333;
+        }
+
+        /* Recent Posts Section */
+        .recent-posts {
+            padding: 80px 50px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .recent-posts h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #ff4500;
+        }
+
+        .recent-post-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .recent-post {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 45%;
+            text-align: left;
+        }
+
+        .recent-post h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ff4500;
+        }
+
+        .recent-post span {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .recent-post p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .recent-post a {
+            color: #ff4500;
+            text-decoration: none;
+        }
+
+        .recent-post a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Media Section */
+        .social-media {
+            padding: 80px 50px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .social-media h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ff4500;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            color: #ff4500;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #ffcc00;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fade-in {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes bounce-in {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="transparent-header">
+    <div class="blog-title">
+        <i class="fas fa-globe"></i> Globetrot Tales
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="travel-guides.html">Travel Guides</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero slide-in">
+    <h1>GLOBETROT TALES</h1>
+    <a href="#" class="cta-button bounce-in">Start Your Adventure</a>
+</section>
+
+<section class="featured-articles">
+    <h2>Featured Adventures</h2>
+    <div class="article-cards">
+        <div class="article-card">
+            <div class="thumbnail">
+                <img src="logo2.jpg" alt="Hidden Gems of Paris">
+            </div>
+            <h3>Discover the hidden gems of Paris</h3>
+            <p>Explore the lesser-known sights and dekights of the city of Lights.</p>
+            <a href="article.html" class="read-more">Read More</a>
+        </div>
+        <div class="article-card">
+            <div class="thumbnail">
+                <img src="logo3.jpg" alt="Culinary Journey Through Thailand">
+            </div>
+            <h3>A Culinary Journey Through Thailand</h3>
+            <p>Taste your way through vibrant street food and local delicacies.</p>
+            <a href="article2.html" class="read-more">Read More</a>
+        </div>
+        <div class="article-card">
+            <div class="thumbnail">
+                <img src="logo4.jpg" alt="Cultural Insights: Festivals Around the world">
+            </div>
+            <h3>Cultural Insights: Festivals Around the World</h3>
+            <p>Experience the vibrant festivals that celebrate traditions and cultures.</p>
+            <a href="article3.html" class="read-more">Read More</a>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="social-media">
+    <h2>Connect with Us</h2>
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-pinterest"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Globetrot Tales. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

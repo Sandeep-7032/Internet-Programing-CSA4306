@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Globetrot Tales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Changa&family=Chatten:wght@500&display=swap">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-image: url('bg2.jpg'); /* Reference your local JPG file here */
+            background-repeat: no-repeat; /* Prevents the background image from repeating */
+            background-size: cover; /* Ensures the background image covers the whole area */
+            background-position: center; /* Center the background image */
+        }
+
+        header {
+            width: 100%;
+            padding: 10px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .blog-title {
+            color: #ffcc00;
+            font-size: 1.8rem; /* Slightly larger font size */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px; /* Increased spacing */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500; /* Bold links */
+            transition: color 0.3s, text-shadow 0.3s; /* Added transition for text shadow */
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00; /* Hover effect */
+            text-shadow: 0 0 5px #ffcc00; /* Text shadow on hover */
+        }
+
+        .contact-content {
+            padding: 70px 50px; /* Reduced top padding for less space */
+            text-align: center;
+            margin: 100px auto; /* Center the content */
+            max-width: 800px; /* Max width for better layout on large screens */
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            color: #000500; /* Changed color of Contact Us text */
+            font-family: 'Poppins', Avant Garde; /* Ensured font is Poppins */
+            margin-bottom: 20px; /* Space below the title */
+        }
+
+        .contact-content p {
+            font-size: 1.2rem; /* Adjusted font size for additional text */
+            color: #333; /* Color for the new text */
+            margin-bottom: 30px; /* Space below the paragraph */
+        }
+
+        .form-container {
+            margin: 40px 0; /* Space around the form container */
+            padding: 30px; /* Increased padding */
+            background-color: rgba(255, 255, 255, 0.5); /* Made the form container more transparent */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for the form */
+            backdrop-filter: blur(10px); /* Added a blur effect for a frosted glass look */
+        }
+
+        .form-container h3 {
+            font-size: 2rem; /* Increased the size of the section title */
+            color: #ff4500; /* Change section title color */
+            margin-bottom: 15px; /* Space below section title */
+        }
+
+        .form-group {
+            margin: 20px 0; /* Space between form groups */
+        }
+
+        .form-group label {
+            display: block; /* Block level for labels */
+            margin-bottom: 5px; /* Space below label */
+            font-weight: 600; /* Bold label text */
+            color: #333; /* Label color */
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%; /* Full width inputs */
+            padding: 12px; /* Padding inside inputs */
+            border: 1px solid #ccc; /* Border for inputs */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 1rem; /* Font size for inputs */
+            transition: border-color 0.3s; /* Transition for border color */
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #ff4500; /* Change border color on focus */
+            outline: none; /* Remove outline */
+        }
+
+        .form-group textarea {
+            resize: vertical; /* Allow vertical resizing */
+        }
+
+        .submit-button {
+            background-color: #ff4500; /* Button color */
+            color: white; /* Button text color */
+            padding: 12px 20px; /* Button padding */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 1rem; /* Font size for button */
+            cursor: pointer; /* Pointer cursor for button */
+            transition: background-color 0.3s; /* Transition for background color */
+            width: 100%; /* Full width button */
+        }
+
+        .submit-button:hover {
+            background-color: #e03e00; /* Darker shade on hover */
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center items */
+            margin: 10px 50px;
+        }
+
+        .faq-heading {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: #ffffff; /* Stylish color */
+            font-family: 'Chatten', cursive; /* Changed to Chatten font */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Added shadow for stylish effect */
+        }
+
+        .faq-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center items */
+            width: 100%;
+        }
+
+        .faq-item {
+            width: 300px; /* Fixed width for items */
+            background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
+            padding: 20px;
+            margin: 15px; /* Space between items */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Light shadow */
+            transition: transform 0.3s, opacity 0.5s; /* Add transition for scale and opacity */
+            opacity: 0; /* Start as invisible */
+            transform: translateY(20px); /* Start slightly below */
+            animation: fadeInUp 0.5s forwards; /* Animate to fade in and move up */
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1; /* Fade to visible */
+                transform: translateY(0); /* Move to original position */
+            }
+        }
+
+        .faq-item:hover {
+            transform: scale(1.05); /* Scale up on hover */
+        }
+
+        .faq-item h4 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .faq-item p {
+            font-size: 1.1rem;
+            color: #555;
+            margin: 0;
+        }
+
+        footer {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            position: relative; /* Ensure footer is relative */
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Media Query for Mobile Screens */
+        @media (max-width: 768px) {
+            .faq-item {
+                width: 100%; /* Single column on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="blog-title">
+        <i class="fas fa-globe"></i> Globetrot Tales
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="travel-guides.html">Travel Guides</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="contact-content">
+    <h2>Contact Us</h2>
+    <p>
+        Send me your queries, feedback, or just say hello! I’d love to hear from you.
+    </p>
+    <div class="form-container">
+        <h3>Get in Touch</h3>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<div class="faq-section">
+    <h2 class="faq-heading">Frequently Asked Questions</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <h4>What is Globetrot Tales?</h4>
+            <p>Globetrot Tales is a travel blog sharing experiences and guides to help fellow travelers explore the world.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How can I contribute to the blog?</h4>
+            <p>You can share your travel stories and tips with us via the contact form above.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Are there any travel tips available?</h4>
+            <p>Yes! We provide tips and guides to help you make the most of your travels.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Can I suggest a destination for the blog?</h4>
+            <p>Absolutely! We love hearing your suggestions. Please use the contact form to let us know.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How often do you update the blog?</h4>
+            <p>We strive to update the blog regularly, with new destinations and tips added every month!</p>
+        </div>
+        <div class="faq-item">
+            <h4>Do you collaborate with other travel bloggers?</h4>
+            <p>Yes! We enjoy collaborating with fellow travel enthusiasts. Reach out to us through the contact form if you're interested!</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Globetrot Tales. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

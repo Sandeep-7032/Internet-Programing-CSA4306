@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Destinations</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        /* Smaller Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 10px 20px; /* Reduced padding */
+            z-index: 1000;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.3); /* Transparent */
+            transition: background-color 0.5s ease, padding 0.5s ease, top 0.5s ease;
+            box-shadow: none;
+        }
+
+        header.hidden {
+            top: -70px; /* Move header off-screen */
+        }
+
+        header.scrolled {
+            background-color: rgba(51, 51, 51, 0.9); /* Slightly darken on scroll */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 5px 20px; /* Further reduced padding on scroll */
+        }
+
+        .logo img {
+            height: 50px; /* Reduced height */
+            width: auto;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 15px; /* Reduced margin */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px; /* Reduced font size */
+            padding: 5px 10px; /* Reduced padding */
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('logo1.jpg'); /* Add your background image */
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 180px 20px; /* Adjusted padding */
+            color: white;
+            margin-top: -70px; /* Offset content for the transparent header */
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h2 {
+            font-size: 40px; /* Reduced font size */
+            margin-bottom: 15px; /* Reduced margin */
+            animation: slideIn 1s ease-out;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 8px 16px; /* Adjusted padding */
+            background-color: #ff6600;
+            color: white;
+            text-decoration: none;
+            font-size: 16px; /* Reduced font size */
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            animation: bounceIn 2s ease-out;
+        }
+
+        .cta-button:hover {
+            background-color: #e65c00;
+        }
+
+        /* Filter Buttons Styling */
+        .filters {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .filters button {
+            background-color: #28a745; /* Button background color */
+            color: white; /* Text color */
+            border: none; /* Remove border */
+            border-radius: 25px; /* Rounded edges */
+            padding: 8px 16px; /* Adjusted padding */
+            margin: 0 10px; /* Spacing between buttons */
+            font-size: 14px; /* Reduced font size */
+            cursor: pointer; /* Pointer cursor */
+            transition: background-color 0.3s, transform 0.2s; /* Transition effects */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        .filters button:hover {
+            background-color: #218838; /* Darker background on hover */
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+
+        .filters button:active {
+            transform: translateY(1px); /* Sink effect on click */
+        }
+
+        /* Articles Section */
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 20px; /* Gap between items */
+            padding: 40px 20px;
+        }
+
+        .article-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+        }
+
+        /* Updated image styling */
+        .article-card img {
+            width: 100%; /* Make image responsive */
+            max-height: 150px; /* Set maximum height for images */
+            object-fit: cover; /* Cover the image without distortion */
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .article-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .article-card p {
+            margin-bottom: 10px;
+        }
+
+        .read-more {
+            color: #ff6600;
+            text-decoration: none;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Recent Posts Section */
+        .recent-posts {
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+
+        .recent-posts h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .recent-post-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .recent-post {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="transparent-header">
+        <div class="logo">
+            <h1>Globetrot Tales</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Destinations</a></li>
+                <li><a href="travel-guides.html">Travel Guides</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h2>Explore by Destination</h2>
+        </div>
+
+        <div class="filters">
+            <button onclick="filterArticles('all')">All</button>
+            <button onclick="filterArticles('asia')">Asia</button>
+            <button onclick="filterArticles('europe')">Europe</button>
+            <button onclick="filterArticles('americas')">Americas</button>
+            <button onclick="filterArticles('africa')">Africa</button>
+        </div>
+
+        <section class="articles" id="article-container">
+            <div class="article-card" data-category="asia">
+                <img src="logo11.jpg" alt="Thailand" />
+                <h3>A Culinary Journey Through Thailand</h3>
+                <p>Experience the vibrant flavors of Thailand.</p>
+                <a href="article2.html" class="read-more">Read More</a>
+            </div>
+            <div class="article-card" data-category="europe">
+                <img src="logo12.jpeg" alt="Paris" />
+                <h3>Discover the Hidden Gems of Paris</h3>
+                <p>Explore the lesser-known sights and delights of the City of Lights.</p>
+                <a href="article/article.html" class="read-more">Read More</a>
+            </div>
+            <div class="article-card" data-category="africa">
+                <img src="logo13.jpg" alt="Festivals" />
+                <h3>Cultural Insights: Festivals Around the World</h3>
+                <p>Experience vibrant festivals celebrating traditions and cultures.</p>
+                <a href="article3.html" class="read-more">Read More</a>
+            </div>
+            <!-- Add more articles as needed -->
+        </section>
+    </main>
+
+    <script>
+        // JavaScript to handle the header scroll behavior
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                header.classList.add('hidden');
+            } else {
+                // Scrolling up
+                header.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // JavaScript for filtering articles
+        function filterArticles(category) {
+            const articles = document.querySelectorAll('.article-card');
+
+            articles.forEach(article => {
+                if (category === 'all' || article.getAttribute('data-category') === category) {
+                    article.style.display = 'block'; // Show article
+                } else {
+                    article.style.display = 'none'; // Hide article
+                }
+            });
+        }
+    </script>
+</body>
+</html>
