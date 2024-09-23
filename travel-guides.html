@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Guides - Globetrot Tales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header Styling */
+        header {
+            width: 100%;
+            padding: 10px 50px; /* Reduced padding */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            transition: background 0.3s ease, top 0.3s ease;
+        }
+
+        .blog-title {
+            color: #ffcc00;
+            font-size: 1.5rem; /* Reduced font size */
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center; /* Align icon and text vertically */
+        }
+
+        .blog-title i {
+            margin-right: 10px; /* Spacing between icon and text */
+            font-size: 1.8rem; /* Icon size */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 15px; /* Reduced margin */
+        }
+
+        nav ul li a {
+            color: rgb(0, 0, 0);
+            font-size: 0.9rem; /* Adjusted font size */
+            text-decoration: none;
+            padding: 8px 15px; /* Reduced padding */
+            border-radius: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        /* Travel Guides Section */
+        .travel-guides {
+            padding: 80px 50px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .travel-guides h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #ff4500;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .guide-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .guide-card {
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            width: 30%;
+            overflow: hidden;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .guide-card h3 {
+            padding: 15px;
+            font-size: 1.5rem;
+            color: #ff4500;
+        }
+
+        .guide-card p {
+            padding: 0 15px 15px 15px;
+            color: #666;
+        }
+
+        .read-more {
+            display: block;
+            background-color: #ff4500;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .read-more:hover {
+            background-color: #ffcc00;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="blog-title">
+        <i class="fas fa-globe"></i> Globetrot Tales
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="travel-guides.html">Travel Guides</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="travel-guides">
+    <h2>Travel Guides</h2>
+    <div class="guide-cards">
+        <div class="guide-card">
+            <div class="thumbnail">
+                <img src="logo18.jpg" alt="Guide to Europe">
+            </div>
+            <h3>Guide to Europe</h3>
+            <p>Your ultimate guide to exploring Europe, from hidden gems to popular attractions.</p>
+            <a href="guides-europe.html" class="read-more">Read More</a>
+        </div>
+        <div class="guide-card">
+            <div class="thumbnail">
+                <img src="logo19.jpg" alt="Backpacking in Asia">
+            </div>
+            <h3>Backpacking in Asia</h3>
+            <p>Explore the best routes and tips for backpacking through the diverse cultures of Asia.</p>
+            <a href="guides-asia.html" class="read-more">Read More</a>
+        </div>
+        <div class="guide-card">
+            <div class="thumbnail">
+                <img src="logo20.jpg" alt="Adventure in South America">
+            </div>
+            <h3>Adventure in South America</h3>
+            <p>Discover the thrilling adventures and experiences South America has to offer.</p>
+            <a href="guides-south america.html" class="read-more">Read More</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2024 GLOBETROT TALES. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

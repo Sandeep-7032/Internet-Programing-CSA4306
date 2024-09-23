@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Globetrot Tales</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slider img.active {
+            opacity: 1;
+        }
+
+        .register-container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .register-container h2 {
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 2.2rem;
+        }
+
+        .register-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .register-container .input-group {
+            position: relative;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .register-container .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff6600;
+            font-size: 1.2rem;
+        }
+
+        .register-container input {
+            width: calc(100% - 40px);
+            padding: 12px 10px 12px 40px;
+            border: none;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            outline: none;
+            color: #333;
+        }
+
+        .register-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .register-container button:hover {
+            background-color: #e63900;
+        }
+
+        .register-container .login-link {
+            display: block;
+            margin-top: 15px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .register-container .login-link:hover {
+            color: #ffcc00;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .register-container {
+                padding: 20px;
+            }
+
+            .register-container h2 {
+                font-size: 1.8rem;
+            }
+
+            .register-container input {
+                padding: 10px 10px 10px 35px;
+            }
+
+            .register-container button {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slider Section -->
+<div class="slider">
+    <img src="logo3.jpg" class="active" alt="Travel Image 1">
+    <img src="logo17.jpg" alt="Travel Image 2">
+    <img src="logo11.jpg" alt="Travel Image 3">
+</div>
+
+<!-- Register Form -->
+<div class="register-container">
+    <h2>Create Account</h2>
+    <form id="registerForm">
+        <div class="input-group">
+            <i class="fa fa-user"></i>
+            <input type="text" id="firstName" placeholder="First Name" required>
+        </div>
+        <div class="input-group">
+            <i class="fa fa-user"></i>
+            <input type="text" id="lastName" placeholder="Last Name (Optional)">
+        </div>
+        <div class="input-group">
+            <i class="fa fa-envelope"></i>
+            <input type="email" id="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+            <i class="fa fa-calendar-alt"></i>
+            <input type="date" id="dob" required>
+        </div>
+        <div class="input-group">
+            <i class="fa fa-lock"></i>
+            <input type="password" id="password" placeholder="Enter Password" required>
+        </div>
+        <div class="input-group">
+            <i class="fa fa-lock"></i>
+            <input type="password" id="confirmPassword" placeholder="Re-enter Password" required>
+        </div>
+        <button type="submit">Create Account</button>
+    </form>
+    <a href="login.html" class="login-link">Already have an account? Login</a>
+</div>
+
+<!-- JavaScript for Slider and Form Functionality -->
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slider img');
+    const totalSlides = slides.length;
+
+    function changeSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % totalSlides;
+        slides[currentSlide].classList.add('active');
+    }
+
+    setInterval(changeSlide, 4000); // Change slide every 4 seconds
+
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        // Save credentials in local storage
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+
+        alert('Account Created Successfully!');
+        window.location.href = "login.html";
+    });
+</script>
+
+</body>
+</html>

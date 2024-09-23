@@ -1,0 +1,61 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #333; /* Dark background for header */
+    color: #fff; /* White text */
+    padding: 10px 20px; /* Padding for spacing */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Align items to the edges */
+    align-items: center; /* Center items vertically */
+}
+
+.logo h1 {
+    margin: 0; /* Remove default margin */
+}
+
+nav ul {
+    list-style: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    display: flex; /* Display links in a row */
+}
+
+nav ul li {
+    margin-left: 20px; /* Space between links */
+}
+
+nav ul li a {
+    color: #fff; /* White text for links */
+    text-decoration: none; /* Remove underline */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Main Article Styles */
+.blog-article {
+    padding: 20px; /* Add padding around article */
+}
+
+.article-content {
+    margin-bottom: 20px; /* Space below article content */
+}
+
+.article-image, .article-video {
+    margin: 15px 0; /* Space above and below images/videos */
+}
+
+.responsive-img {
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto; /* Maintain aspect ratio */
+}

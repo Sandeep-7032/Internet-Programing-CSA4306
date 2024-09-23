@@ -1,0 +1,367 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Transparent Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 40px;
+    z-index: 1000;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.3); /* Transparent */
+    transition: background-color 0.5s ease, padding 0.5s ease;
+    box-shadow: none;
+}
+
+header.scrolled {
+    background-color: rgba(51, 51, 51, 0.9); /* Slightly darken on scroll */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px 30px;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 12px;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('logo1.jpg'); /* Add your background image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 200px 20px;
+    color: white;
+    margin-top: -80px; /* Offset content for the transparent header */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: slideIn 1s ease-out;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    animation: bounceIn 2s ease-out;
+}
+
+.cta-button:hover {
+    background-color: #e65c00;
+}
+
+/* Featured Articles */
+.featured-articles {
+    padding: 40px 20px;
+}
+
+.featured-articles h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    animation: slideIn 1.2s ease-out;
+}
+
+.article-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.article-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    animation: slideUp 1.5s ease-out;
+}
+
+.article-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.article-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.article-card p {
+    margin-bottom: 10px;
+}
+
+.read-more {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Recent Posts Section */
+.recent-posts {
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+.recent-posts h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.recent-post-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recent-post {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.recent-post h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.recent-post span {
+    display: block;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.recent-post p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.recent-post a {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+.recent-post a:hover {
+    text-decoration: underline;
+}
+
+/* Follow My Journey Section */
+.social-media {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.social-media h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: #ff6600;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px;
+    transition: background 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #e65c00;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Travel Destinations Styles */
+.destinations {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.destinations h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.destination-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.destination-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.destination-card:hover {
+    transform: scale(1.05);
+}
+
+.destination-card img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 100%;
+}
+
+.destination-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.destination-card p {
+    padding: 0 15px;
+    color: #666;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-container select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
