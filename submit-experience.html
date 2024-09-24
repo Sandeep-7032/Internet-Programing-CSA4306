@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Experience - Globetrot Tales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-image: url('bg5.jpg'); /* Add your background image URL here */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            color: #333;
+            height: 100vh; /* Full height */
+        }
+
+        /* Header Styling */
+        header {
+            width: 100%;
+            padding: 10px 50px; /* Adjusted padding */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
+            transition: background 0.3s ease, top 0.3s ease;
+        }
+
+        .blog-title {
+            color: #ffcc00;
+            font-size: 1.5rem; /* Font size */
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-title i {
+            margin-right: 10px; /* Spacing between icon and text */
+            font-size: 1.8rem; /* Icon size */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 15px; /* Reduced margin */
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 0.9rem; /* Adjusted font size */
+            text-decoration: none;
+            padding: 8px 15px; /* Reduced padding */
+            border-radius: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        main {
+            padding: 80px 50px;
+            text-align: center;
+            position: relative; /* Position relative for thank you message */
+        }
+
+        .submission-form {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .submission-form h2 {
+            color: #ff4500;
+            margin-bottom: 20px;
+        }
+
+        .submission-form label {
+            display: block;
+            margin: 15px 0 5px;
+            text-align: left;
+        }
+
+        .submission-form input,
+        .submission-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .submission-form button {
+            background-color: #ff4500;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submission-form button:hover {
+            background-color: #ffcc00;
+            color: #333;
+        }
+
+        .thank-you-message {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: #ff4500;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) translateY(0); }
+            50% { transform: translate(-50%, -50%) translateY(-20px); }
+            100% { transform: translate(-50%, -50%) translateY(0); }
+        }
+
+        footer {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="blog-title">
+        <i class="fas fa-globe"></i> <!-- Earth icon -->
+        Globetrot Tales
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="travel-guides.html">Travel Guides</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="submission-form" id="submissionForm">
+        <h2>Share Your Adventure</h2>
+        <form id="experienceForm">
+            <label for="title">Title of Your Experience:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="experience">Your Experience:</label>
+            <textarea id="experience" name="experience" rows="5" required></textarea>
+
+            <label for="images" class="upload-label">Upload Images:</label>
+            <div class="upload-container">
+                <input type="file" id="images" name="images" multiple accept="image/*" class="upload-input">
+                <label for="images" class="upload-button">Choose Files</label>
+            </div>
+
+            <button type="submit">Submit Experience</button>
+        </form>
+    </section>
+    <div class="thank-you-message" id="thankYouMessage">THANK YOU FOR SHARING YOUR EXPERIENCE</div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Globetrot Tales. All rights reserved.</p>
+</footer>
+
+<script>
+    document.getElementById('experienceForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+        document.getElementById('submissionForm').style.display = 'none'; // Hide the form
+        document.getElementById('thankYouMessage').style.display = 'block'; // Show the thank you message
+    });
+</script>
+
+</body>
+</html>
